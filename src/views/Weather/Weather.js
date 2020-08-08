@@ -97,8 +97,6 @@ function Weather({
       <Grid
         rows={getRows(cities, idCity)}
         columns={columns}
-        cities={cities}
-        selectedCity={selectedCity}
       />
     </>
   );
