@@ -1,0 +1,29 @@
+@import './src/variables';
+
+.WeatherCard {
+  width: 400px;
+  margin: $spacing-large;
+  padding: $spacing-small;
+  border-radius: 10px;
+  -webkit-box-shadow: 7px 9px 19px 0 rgba(0,0,0,0.47);
+  -moz-box-shadow: 7px 9px 19px 0 rgba(0,0,0,0.47);
+  box-shadow: 7px 9px 19px 0 rgba(0,0,0,0.47);
+}
+
+.WeatherCard__date {
+  font-weight: bold;
+  margin-bottom: $spacing-medium;
+}
+
+.WeatherCard__main-info {
+  display: flex;
+}
+
+.WeatherCard__weather-image {
+  width: 80px;
+  padding: $spacing-medium;
+}
+
+.WeatherCard__description {
+  margin-top: $spacing-medium;
+}

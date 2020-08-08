@@ -1,0 +1,9 @@
+@import './src/variables';
+
+.PageNotFound {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-xxx-large;
+  font-size: $font-size-xx-large;
+  font-weight: $font-weight-bold;
+}

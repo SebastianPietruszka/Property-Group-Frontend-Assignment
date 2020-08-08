@@ -1,0 +1,67 @@
+// Typography
+$font-size-x-small: 0.75rem !default; // 12px
+$font-size-small: 0.875rem !default; // 14px
+$font-size-medium: 1rem !default; // 16px
+$font-size-default: 1rem !default; // 16px
+$font-size-large: 1.125rem !default; // 18px
+$font-size-x-large: 1.5rem !default; // 24px
+$font-size-xx-large: 2rem !default; // 32x
+$font-size-xxx-large: 2.5rem !default; // 40px
+
+$font-weight-light: 300 !default;
+$font-weight-regular: 400 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+$font-weight-heavy: 900 !default;
+
+// Spacing
+
+$border-width-thin: 1px !default;
+$border-width-thick: 2px !default;
+$spacing-xxx-small: 0.0625rem !default;
+$spacing-xx-small: 0.125rem !default;
+$spacing-x-small: 0.25rem !default;
+$spacing-small: 0.5rem !default;
+$spacing-medium: 1rem !default;
+$spacing-large: 1.5rem !default;
+$spacing-x-large: 2rem !default;
+$spacing-xx-large: 3rem !default;
+$spacing-xxx-large: 3.5rem !default;
+
+// Sizing
+
+$size-xxx-small: 4rem !default;
+$size-xx-small: 6rem !default;
+$size-x-small: 12rem !default;
+$size-small: 15rem !default;
+$size-medium: 20rem !default;
+$size-large: 25rem !default;
+$size-x-large: 40rem !default;
+$size-xx-large: 60rem !default;
+
+// Border Radius
+
+$border-radius-default: 3px !default;
+$border-radius-small: 0.125rem !default;
+$border-radius-medium: 0.25rem !default;
+$border-radius-large: 0.5rem !default;
+$border-radius-x-large: 1rem !default;
+$border-radius-xx-large: 2rem !default;
+$border-radius-xxx-large: 3rem !default;
+$border-radius-circle: 50% !default;
+$border-radius-pill: 15rem !default;
+
+// Media Query Breakpoints
+
+$mq-x-small: 300px !default;
+$mq-small: 480px !default;
+$mq-medium: 768px !default;
+$mq-large: 1008px !default;
+$mq-x-large: 1392px !default;
+$mq-xx-large: 1980px !default;
+
+// Colors
+
+$color-primary: #44c399;
+$color-secondary: #236982;
+$color-gray: #efefef;

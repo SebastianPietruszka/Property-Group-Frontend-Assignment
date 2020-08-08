@@ -1,0 +1,14 @@
+@import './src/variables';
+
+.Weather__cards {
+  display: flex;
+  justify-content: center;
+  margin: $spacing-large 0;
+}
+
+.Weather__spinner {
+  display: flex;
+  height: $size-large;
+  justify-content: center;
+  align-items: center;
+}
