@@ -71,8 +71,9 @@ function Weather({
   useEffect(() => {
     // eslint-disable-next-line consistent-return
     getCityId(selectedCity).then(res => {
+      const cityKey = res[0]?.Key;
       if (!res.length) return history.push(`/404`);
-      if (!cities[res[0].Key]) getWeatherByCityId(res[0].Key, selectedCity);
+      if (!cities[cityKey]) getWeatherByCityId(cityKey, selectedCity);
 
       Object.keys(CITIES_IDS).forEach(city => {
         const { ID: id, NAME: name } = CITIES_IDS[city];
