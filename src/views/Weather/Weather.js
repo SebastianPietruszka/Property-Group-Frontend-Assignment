@@ -13,7 +13,7 @@ import WeatherCard from './components/WeatherCard';
 import { DIFF_PHRASE, UNITS } from '../../constants';
 import { CITIES_IDS } from './constants';
 import {
-  getWeatherByIdCity as getWeatherByIdCityAction,
+  getWeatherByCityId as getWeatherByCityIdAction,
   getCityId as getCityIdAction,
 } from './actions';
 
@@ -60,7 +60,7 @@ function Weather({
   cities,
   idCity,
   cityDetails,
-  getWeatherByIdCity,
+  getWeatherByCityId,
   weatherFetching,
   getCityId,
   idCityFetch,
@@ -69,14 +69,16 @@ function Weather({
   const history = useHistory();
 
   useEffect(() => {
+    // eslint-disable-next-line consistent-return
     getCityId(selectedCity).then(res => {
       if (!res.length) return history.push(`/404`);
+      if (!cities[res[0].Key]) getWeatherByCityId(res[0].Key, selectedCity);
 
-      return Promise.all([
-        getWeatherByIdCity(res[0].Key, selectedCity),
-        getWeatherByIdCity(CITIES_IDS.WARSAW, 'Warszawa'),
-        getWeatherByIdCity(CITIES_IDS.CRACOW, 'Kraków'),
-      ]).catch(() => history.push(`/404`));
+      Object.keys(CITIES_IDS).forEach(city => {
+        const { ID: id, NAME: name } = CITIES_IDS[city];
+
+        if (!cities[id]) getWeatherByCityId(id, name);
+      });
     });
   }, [selectedCity]);
 
@@ -94,10 +96,7 @@ function Weather({
         <WeatherCard {...cities[idCity].today} />
         <WeatherCard {...cities[idCity].tomorrow} />
       </div>
-      <Grid
-        rows={getRows(cities, idCity)}
-        columns={columns}
-      />
+      <Grid rows={getRows(cities, idCity)} columns={columns} />
     </>
   );
 }
@@ -107,7 +106,7 @@ const mapStateToProps = ({ cities, idCity, cityDetails, weatherFetching, idCityF
 };
 
 const mapDispatchToProps = {
-  getWeatherByIdCity: getWeatherByIdCityAction,
+  getWeatherByCityId: getWeatherByCityIdAction,
   getCityId: getCityIdAction,
 };
 
@@ -145,7 +144,7 @@ Weather.propTypes = {
   idCity: PropTypes.string,
   cityDetails: PropTypes.string,
   weatherFetching: PropTypes.bool.isRequired,
-  getWeatherByIdCity: PropTypes.func.isRequired,
+  getWeatherByCityId: PropTypes.func.isRequired,
   getCityId: PropTypes.func.isRequired,
 };
 

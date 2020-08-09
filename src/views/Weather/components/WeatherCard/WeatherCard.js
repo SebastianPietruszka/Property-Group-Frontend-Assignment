@@ -28,7 +28,7 @@ function WeatherCard({
           <div>Maksymalna temperatura: {getValueWithUnit(maxTemperature, UNITS.TEMPERATURE)}</div>
           <div>Minimalna temperatura: {getValueWithUnit(minTemperature, UNITS.TEMPERATURE)}</div>
           <div>
-            Prawdopodobmieństwo opadów: {getValueWithUnit(rainProbability, UNITS.PERCENTAGE)}
+            Prawdopodobieństwo opadów: {getValueWithUnit(rainProbability, UNITS.PERCENTAGE)}
           </div>
           <div>Wiatr: {getValueWithUnit(windSpeed, UNITS.WIND)}</div>
         </div>

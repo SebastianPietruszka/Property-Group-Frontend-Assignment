@@ -11,7 +11,7 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
-      { test: /\.s?css$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+      { test: /\.s?css$/, use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'] },
     ],
   },
   entry: ['@babel/polyfill', './src/index.js'],
