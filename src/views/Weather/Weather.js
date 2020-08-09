@@ -69,18 +69,24 @@ function Weather({
   const history = useHistory();
 
   useEffect(() => {
-    // eslint-disable-next-line consistent-return
-    getCityId(selectedCity).then(res => {
-      const cityKey = res[0]?.Key;
-      if (!res.length) return history.push(`/404`);
-      if (!cities[cityKey]) getWeatherByCityId(cityKey, selectedCity);
+    getCityId(selectedCity)
+      .then(res => {
+        const cityKey = res[0]?.Key;
+        if (!res.length) return history.push(`/404`);
+        if (!cities[cityKey]) getWeatherByCityId(cityKey, selectedCity);
 
-      Object.keys(CITIES_IDS).forEach(city => {
-        const { ID: id, NAME: name } = CITIES_IDS[city];
+        return Object.keys(CITIES_IDS).forEach(city => {
+          const { ID: id, NAME: name } = CITIES_IDS[city];
 
-        if (!cities[id]) getWeatherByCityId(id, name);
+          if (!cities[id]) getWeatherByCityId(id, name);
+        });
+      })
+      .catch(() => {
+        alert(
+          'Ups... przekroczono dzienny limit zapytań do AccuWeather. \nAby móc testować dalej, możesz zmienić klucz w pliku globalConsts.js'
+        );
+        history.push(`/404`);
       });
-    });
   }, [selectedCity]);
 
   if (!cities || !cities[idCity] || weatherFetching || idCityFetch)
